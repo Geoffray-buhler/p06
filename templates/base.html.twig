@@ -18,7 +18,7 @@
     <nav id="nav">
         <div class="nav-wrapper">
         <a href="/" class="brand-logo firstOrange">SnowTricks</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger">Menu</a>
         <ul class="right hide-on-med-and-down">
             {% if app.user %}
                 <li><a href="{{path('app_profil')}}">Profil</a></li>
@@ -30,7 +30,7 @@
         </ul>
         </div>
     </nav>
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav" id="slide-out">
         {% if app.user %}
             <li><a href="{{path('app_profil')}}">Profil</a></li>
             <li><a href="{{path('app_logout')}}">Deconnexion</a></li>
@@ -55,12 +55,9 @@
             </div>
           </div>
         </footer>
-    <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
+        <script src="{{asset('js/materialize.js')}}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        let elems = document.querySelectorAll('.sidenav');
-        let instances = M.Sidenav.init(elems);
-    });
+        M.AutoInit();
     </script>
     </body>
 </html>

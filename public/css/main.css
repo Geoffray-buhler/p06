@@ -38,10 +38,15 @@ h4{
   z-index:6000;
 }
 
+.sidenav-trigger{
+	cursor: pointer;
+}
+
 .tricksContainer{
   margin-top:3rem;
   margin-bottom:6rem;
   padding-left:2rem;
+	padding-right: 2rem;
 }
 
 .d-flex{
@@ -150,15 +155,15 @@ h4{
 
 .jumbotron > video{
   position:absolute;
-  width:100%;
+  width:90%;
   z-index:-1;
   border-bottom:solid #EB6534;
 }
 
 .jumbotron-bg{
-  aspect-ratio:79/34;
+  aspect-ratio:80/34;
   z-index:1;
-  width:108vw;
+  width:99vw;
   background:#ffffff60;
   border-bottom:solid #EB6534
 }

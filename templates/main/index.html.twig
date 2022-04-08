@@ -4,7 +4,7 @@
 {% block arrow %}<a id="arrow" href="#tricksContainer" class="btn-floating btn-large waves-effect waves-light orange hide-on-small-only"><i class="material-icons">arrow_downward</i></a>{% endblock %}
 {% block body %}
     {{ parent() }}
-    <div class="jumbotron">
+    <div class="jumbotron hide-on-small-only">
         <div class="jumbotron-bg">
             <h1 class="firstOrange">SnowTricks</h1>
         </div>
@@ -49,6 +49,5 @@
             <button class="button-primaire center m50p">Afficher plus</button>
         </form>
     </div>
-<script src="{{asset('js/more.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/arrow.js')}}"></script>
 {% endblock %}
