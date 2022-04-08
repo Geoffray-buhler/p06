@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{trick.name}}{% endblock %}
+
+{% block body %}
+<h1 class="firstOrange center">{{trick.name}}</h1>
+<p class="firstOrange center">{{trick.Definition}}</p>
+<div class="mediaContainer">
+{% if medias == [] %}
+    <img class="Images" alt="Photo par default" src="{{asset('/uploads/medias/default.jpg')}}"/>
+{% endif %}
+{% for media in medias %}
+    {% if media.type == 'Image' %}
+    <div class="p-relat">
+        <img class="Images" alt="Photo de la figure" src="{{asset('/uploads/medias/') ~ media.FileName}}"/>
+        <form method="post" action="{{ path('app_media_delete', {'id': media.id}) }}" onsubmit="return confirm('Etes vous sur de supprimée cette image ?');">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ media.id) }}">
+            {% if app.user %}
+            <button class="btn-danger"><i class="material-icons red-text">delete_forever</i></button>
+            {% endif %}
+        </form>
+    </div>
+    {% endif %}
+    {% if media.type == 'Youtube' %}
+    <div class="p-relat">
+        <iframe width="300" height="150" src="https://www.youtube.com/embed/ ~ {{media.FileName}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <form method="post" action="{{ path('app_media_delete', {'id': media.id}) }}"
+            onsubmit="return confirm('Etes vous sur de supprimée cette video youtube ?');">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ media.id) }}">
+            {% if app.user %}
+            <button class="btn-danger"><i class="material-icons red-text">delete_forever</i></button>
+            {% endif %}
+        </form>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+<div class="container chat">
+<h4 class="firstOrange">Chat</h4>
+<div class="commentContainer">
+{% for comment in comments %}
+    <span class="d-flex"><img class="Icon-avat" alt="Image de votre avatar" src="{{asset('/uploads/avatars/') ~ comment.User.Avatar}}"/><span class="firstOrange">{{comment.User.Name}} :</span><span class="firstOrange ml-1">{{comment.Body}}</span></span>
+{% endfor %}
+</div>
+{{form_start(form,{'attr':{'class':'d-flex'}})}}
+{% if app.user %}
+    {{form_widget(form.message,{'attr':{'class':'col l8 m8 s8'}})}}
+    {{form_widget(form.Envoi,{'attr':{'class':'col l2 m2 s2 button-primaire'}})}}
+    {% else %}
+    {{form_widget(form.message,{'attr':{'class':'col l8 m8 s8'}})}}
+    {{form_widget(form.Envoi,{'attr':{'class':'col l2 m2 s2 button-primaire disable'}})}}
+{% endif %}
+{{form_end(form)}}
+</div>
+{% endblock %}

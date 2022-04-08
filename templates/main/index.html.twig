@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SnowTricks{% endblock %}
+{% block arrow %}<a id="arrow" href="#tricksContainer" class="btn-floating btn-large waves-effect waves-light orange hide-on-small-only"><i class="material-icons">arrow_downward</i></a>{% endblock %}
+{% block body %}
+    {{ parent() }}
+    <div class="jumbotron">
+        <div class="jumbotron-bg">
+            <h1 class="firstOrange">SnowTricks</h1>
+        </div>
+        <video muted autoplay loop>
+            <source src="{{asset('video/ExtremeSnowboarding.mp4')}}" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="tricksContainer" class="tricksContainer">
+        <div class="row">
+            {% for trick in tricks %}
+                <div class="card col xl2 l4 m6 s12">
+                    <a class="linkovercarde" href="{{path('app_trick',{'id':trick.id})}}"></a>
+                    <div class="card-image">
+                        {% set IsOk = 0 %}
+                        {% for media in medias %}
+                            {% if media.trick.id == trick.id and IsOk == 0 %}
+                            {% set IsOk = 1 %}
+                            <img alt="Photo de la figure {{ trick.name }}" src="{{asset('/uploads/medias/' ~ media.fileName)}}">
+                            {% if app.user %}
+                                <div class="d-flex control">
+                                    <form method="post" action="{{ path('app_trick_delete', {'id': trick.id}) }}" onsubmit="return confirm('Etes vous sur de vouloir supprimer cette figure ?');">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
+                                        <button class="btn-danger"><em class="material-icons red-text">delete_forever</em></button>
+                                    </form>
+                                    <a class="btn-warning" onclick="return confirm('Attention vous aller modifier cette figure ! ');" href='{{path('app_tricks_modify', {'id': trick.id}) }}'>
+                                        <em class="material-icons orange-text">edit</em>
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <span class="card-title">{{ trick.name }}</span>
+                    </div>
+                    <p class="moreinfo">Plus d'infos</p>
+                </div>
+            {% endfor %}
+        </div>
+        <form method="post" action="#tricksContainer">
+            <input type="hidden" name="more" value="more">
+            <button class="button-primaire center m50p">Afficher plus</button>
+        </form>
+    </div>
+<script src="{{asset('js/more.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/arrow.js')}}"></script>
+{% endblock %}

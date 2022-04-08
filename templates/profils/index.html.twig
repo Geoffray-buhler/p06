@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre profile{% endblock %}
+
+{% block body %}
+<div class="main">
+    <div class="align-center">
+        <a class="button-primaire" href="{{path('app_profil_createTricks')}}">
+            Crée une figure
+        </a>
+        <a class="button-primaire ml-1" href="{{path('app_profil_modifyProfil')}}">
+            Modifier mon compte
+        </a>
+    </div>
+</div>
+{% endblock %}

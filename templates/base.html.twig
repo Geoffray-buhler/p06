@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>ST</text></svg>">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.css')}}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="{{asset('css/main.css')}}"  media="screen,projection"/>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <nav id="nav">
+        <div class="nav-wrapper">
+        <a href="/" class="brand-logo firstOrange">SnowTricks</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            {% if app.user %}
+                <li><a href="{{path('app_profil')}}">Profil</a></li>
+                <li><a href="{{path('app_logout')}}">Deconnexion</a></li>
+            {% else %}
+                <li><a href="{{path('app_login')}}">Connexion</a></li>
+                <li><a href="{{path('app_register')}}">Inscription</a></li>
+            {% endif %}
+        </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        {% if app.user %}
+            <li><a href="{{path('app_profil')}}">Profil</a></li>
+            <li><a href="{{path('app_logout')}}">Deconnexion</a></li>
+        {% else %}
+            <li><a href="{{path('app_login')}}">Connexion</a></li>
+            <li><a href="{{path('app_register')}}">Inscription</a></li>
+        {% endif %}
+    </ul>
+        {% for flashMessage in app.session.flashbag.get('succes') %}
+            <p class="succes center">{{ flashMessage }}</p>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            <p class="error center">{{ flashMessage }}</p>
+        {% endfor %}
+        {% block arrow %}{% endblock %}
+        {% block body %}
+        {% endblock %}
+       <footer class="page-footer orange">
+          <div class="footer-copyright">
+            <div class="container">
+            © 2022 SnowTricks
+            </div>
+          </div>
+        </footer>
+    <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        let elems = document.querySelectorAll('.sidenav');
+        let instances = M.Sidenav.init(elems);
+    });
+    </script>
+    </body>
+</html>

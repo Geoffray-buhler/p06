@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier votre profile{% endblock %}
+
+{% block body %}
+<div class="main container row column">
+    <div class=" col s12 l12 m12">
+        <label class=" col s12 l12 m12">Votre avatar</label>
+        <div class="input-field">
+            <img class="Images" alt="image de votre avatar" src="{{asset('uploads/avatars/') ~ user.Avatar }}"/>
+            <a class="absolute modify"><i data-name="avatar" class="orange-text material-icons">mode_edit</i></a>
+        </div>
+        <label class="col s12 l12 m12">Votre e-mail</label>
+        <div class="input-field">
+            <input class="input col s11 l11 m11" data-name="email" type="text" value="{{ user.email }}">
+            <i id="email" class="green-text material-icons check hide col s1 m1 l1">check</i>
+        </div>
+        <label class=" col s12 l12 m12">Votre nom</label>
+        <div class="input-field">
+            <input class="input col s11 l11 m11" data-name="name" type="text" value="{{ user.Name }}">
+            <i id="name" class="green-text material-icons check hide col s1 m1 l1">check</i>
+        </div>
+        <div class="col s2 l2 m2 d-flex" style="padding-left:0;">
+            <label class=" col s12 l12 m12">Mot de passe</label>
+            <a class="modify"><i data-name="password" class="orange-text material-icons">mode_edit</i></a>
+        </div>
+
+        <div data-name="password" class="hide popup top32 left23">
+            <form action="{{path('app_profil_modifypassword')}}" method="post">
+                <a class="btn-danger btn-danger-pos modify absolute"><i class="red-text material-icons">clear</i></a>
+                <label>Ancien mot de passe</label>
+                <input class="input" name="passwordold" type="password"/><i id="passwordold" class="green-text check material-icons hide">check</i>
+                <label>Nouveau mot de passe</label>
+                <input class="input" name="passwordnew" type="password"/><i id="passwordnew" class="green-text check material-icons hide">check</i>
+                <label>Comfirmer votre nouveau mot de passe</label>
+                <input class="input" name="passworddouble" type="password"/><i id="passworddouble" class="green-text check material-icons hide">check</i>
+                <input type="submit" class="button-primaire" value="Changer">
+            </form>
+        </div>
+        <div data-name="avatar" class="hide popup top40 left40">
+        <a class="btn-danger btn-danger-pos btn-danger-pos2 modify absolute"><i class="red-text material-icons">clear</i></a>
+            {{ form_start(form) }}
+            {{form_widget(form.avatar)}}
+            <input type="submit" class="button-primaire" value="Changer ! "/>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+<script src="{{asset('js/upload.js')}}"></script>
+{% endblock %}
