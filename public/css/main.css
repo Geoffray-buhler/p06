@@ -3,193 +3,193 @@ html {
 }
 
 body{
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 footer{
-    bottom: 0;
-    left: 0;
-    right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 h4{
-    margin-top: 0;
-    margin-left: 1rem;
+  margin-top: 0;
+  margin-left: 1rem;
 }
 
 .succes{
-    background-color: #1ca50122;
-    border-radius: 10px;
-    border: solid #1ca501;
-    color: #1ca501;
+  background-color: #1ca50122;
+  border-radius: 10px;
+  border: solid #1ca501;
+  color: #1ca501;
 }
 
 .error{
-    background-color: #a5010122;
-    border-radius: 10px;
-    border: solid #a50101;
-    color: #a50101;
+  background-color: #a5010122;
+  border-radius: 10px;
+  border: solid #a50101;
+  color: #a50101;
 }
 
 #arrow{
-    position: fixed;
-    right: 3rem;
-    top: 48vh;
-    z-index: 6000;
+  position: fixed;
+  right: 3rem;
+  top: 48vh;
+  z-index: 6000;
 }
 
 .tricksContainer{
-    margin-top: 3rem;
-    margin-bottom: 6rem;
-    padding-left: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  padding-left: 2rem;
 }
 
 .d-flex{
-    display: flex;
+  display: flex;
 }
 
 .column{
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .return0{
-    transform:rotate(0deg);
+  transform:rotate(0deg);
 }
 
 .return180{
-    transform:rotate(180deg);
+  transform:rotate(180deg);
 }
 
 .main{
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    height: 90vh;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  height: 90vh;
 }
 
 .align-center{
-    align-self: center;
+  align-self: center;
 }
 
 .modify{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .between{
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .popup{
-    position: absolute;
-    padding: 2rem;
-    border-radius: 1rem;
-    background-color: #fff;
-    border: 1px #0005;
-    -webkit-box-shadow: 0px 1px 45px 1px rgba(0,0,0,0.15); 
-    box-shadow: 0px 1px 45px 1px rgba(0,0,0,0.15);
+  position: absolute;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  border: 1px #0005;
+  -webkit-box-shadow: 0px 1px 45px 1px rgba(0,0,0,0.15); 
+  box-shadow: 0px 1px 45px 1px rgba(0,0,0,0.15);
 }
 
 .check{
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .top40{
-    top:40%;
+  top:40%;
 }
 
 .top32{
-    top: 32%;
+  top: 32%;
 }
 
 .left23{
-    left: 23%;
+  left: 23%;
 }
 
 .left40{
-    left:40%;
+  left:40%;
 }
 
 .Icon-avat{
-    margin-right: 1rem;
-    height: 22px;
-    width: 22px;
-    border-radius: 500rem;
+  margin-right: 1rem;
+  height: 22px;
+  width: 22px;
+  border-radius: 500rem;
 }
 
 .relative{
-    position: relative;
+  position: relative;
 }
 
 .absolute{
-    position: absolute;
+  position: absolute;
 }
 
 .btn-danger-pos{
-    left: 53vw;
-    top: 5px;
-    position: absolute;
+  left: 53vw;
+  top: 5px;
+  position: absolute;
 }
 
 .btn-danger-pos2{
-    left: 21vw;
-    top: 5px;
-    position: absolute;
+  left: 21vw;
+  top: 5px;
+  position: absolute;
 }
 
 .jumbotron{
-    position: relative;
-    display: flex;
-    height: max-content;
-    width: 110vw;
+  position: relative;
+  display: flex;
+  height: max-content;
+  width: 110vw;
 }
 
 .jumbotron h1{
-    text-align: center;
-    margin-top: 16%;
+  text-align: center;
+  margin-top: 16%;
 }
 
 .jumbotron > video{
-    position: absolute;
-    width: 100%;
-    z-index: -1;
-    border-bottom: solid #EB6534;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  border-bottom: solid #EB6534;
 }
 
 .jumbotron-bg{
-    aspect-ratio: 79/34;
-    z-index: 1;
-    width: 108vw;
-    background: #ffffff60;
-    border-bottom: solid #EB6534
+  aspect-ratio: 79/34;
+  z-index: 1;
+  width: 108vw;
+  background: #ffffff60;
+  border-bottom: solid #EB6534
 }
 
 .button-primaire{
-    border: solid #aaa;
-    border-radius: 1rem;
-    color: #aaa;
-    transition: 1s;
-    padding: 1rem;
-    cursor: pointer;
+  border: solid #aaa;
+  border-radius: 1rem;
+  color: #aaa;
+  transition: 1s;
+  padding: 1rem;
+  cursor: pointer;
 }
 
 .button-primaire:hover{
-    border: solid #EB6534;
-    color: #EB6534;
-    transition: 1s;
+  border: solid #EB6534;
+  color: #EB6534;
+  transition: 1s;
 }
 
 .commentContainer{
-    display: flex;
-    flex-direction: column;
-    min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 5rem;
 }
 
 .firstOrange::first-letter{
-    color:#EB6534;
+  color:#EB6534;
 }
 
 .mr-1{
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .ml-1{
@@ -197,197 +197,197 @@ h4{
 }
 
 .mb-1{
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mt-1{
-    margin-top: 1rem; 
+  margin-top: 1rem; 
  }
 
 .m50p{
-    margin-left: 50%;
+  margin-left: 50%;
 }
 
 .btn-danger{
-    border: none;
-    background-color: #0000;
-    transition:1s;
-    z-index: 5000;
+  border: none;
+  background-color: #0000;
+  transition:1s;
+  z-index: 5000;
 }
 
 .btn-danger:hover{
-    border: none;
-    background-color: rgba(255, 0, 0, 0.295);
-    transition:1s;
+  border: none;
+  background-color: rgba(255, 0, 0, 0.295);
+  transition:1s;
 }
 
 .cardoverlay {
-    position:relative;
+  position:relative;
 }
 
 .control{
-    position: absolute;
-    top: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .control form{
-    z-index: 5000;
+  z-index: 5000;
 }
 
 .moreinfo{
-    color: #EB6534;
-    font-weight: bold;
-    margin-top: 0;
-    margin-left: 1rem;
+  color: #EB6534;
+  font-weight: bold;
+  margin-top: 0;
+  margin-left: 1rem;
 }
 
 .linkovercarde{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 4000;
-    aspect-ratio: 12/10;
-    transition: 1s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4000;
+  aspect-ratio: 12/10;
+  transition: 1s;
 }
 
 .btn-warning{
-    border: none;
-    background-color: #0000;
-    transition:1s;
-    z-index: 5000;
+  border: none;
+  background-color: #0000;
+  transition:1s;
+  z-index: 5000;
 }
 
 .btn-warning:hover{
-    border: none;
-    background-color: rgba(255, 123, 0, 0.295);
-    transition:1s;
+  border: none;
+  background-color: rgba(255, 123, 0, 0.295);
+  transition:1s;
 }
 
 .col-custom{
-    width: 22%;
-    margin-left: auto;
-    left: auto;
-    right: auto;
+  width: 22%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
 }
 
 .card{
-    margin-left: 1vw!important;
-    margin-right: 1vw!important;
-    animation: opacity 1s;
-    padding: 0!important;
-    aspect-ratio: 12/10;
-    border-radius: 1rem;
-    transition: 1s;
+  margin-left: 1vw!important;
+  margin-right: 1vw!important;
+  animation: opacity 1s;
+  padding: 0!important;
+  aspect-ratio: 12/10;
+  border-radius: 1rem;
+  transition: 1s;
 }
 
 .card:hover{
-    transition: 1s;
-    transform: scale(1.1) rotate(5deg);
+  transition: 1s;
+  transform: scale(1.1) rotate(5deg);
 }
 
 div.card > a{
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .card .card-content {
-    padding: 0;
-    border-radius: 0 0 2px 2px;
+  padding: 0;
+  border-radius: 0 0 2px 2px;
 }
 
 .card-image{
-    width: 100%;
-    border-top-left-radius:1rem !important;
-    border-top-right-radius:1rem !important;
+  width: 100%;
+  border-top-left-radius:1rem !important;
+  border-top-right-radius:1rem !important;
 }
 
 .card-image img{
-    width: 100%;
-    aspect-ratio: 4/3;
-    border-top-left-radius:1rem !important;
-    border-top-right-radius:1rem !important;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-top-left-radius:1rem !important;
+  border-top-right-radius:1rem !important;
 }
 
 .card div.d-flex.between form button{
-    position: absolute;
-    top:1rem;
-    left:1rem;
+  position: absolute;
+  top:1rem;
+  left:1rem;
 }
 
 .card-content a{
-    color: #EB6534;
-    font-weight: bold;
-    cursor: pointer;
+  color: #EB6534;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .card-content a:hover{
-    color: #0077ff;
-    font-weight: bold;
-    cursor: pointer;
+  color: #0077ff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .card div.d-flex.between a{
-    position: absolute;
-    top:1rem;
-    right:1rem;
+  position: absolute;
+  top:1rem;
+  right:1rem;
 }
 
 .Images{
-    aspect-ratio: 4/3;
-    width: 30%;
+  aspect-ratio: 4/3;
+  width: 30%;
 }
 
 .mediaContainer{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    height: 20%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  height: 20%;
 }
 
 .p-relat{
-    position: relative;
+  position: relative;
 }
 
 .chat{
-    position: relative;
-    padding: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    height: 24rem;
-    border: #EB6534 solid 2px;
-    border-radius: 1rem;
+  position: relative;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 24rem;
+  border: #EB6534 solid 2px;
+  border-radius: 1rem;
 }
 
 .chat > form{
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    margin-bottom: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  margin-bottom: 1rem;
 }
 
 .chat > form > button{
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #EB6534;
-    -webkit-box-shadow: 0 1px 0 0 #EB6534;
-    box-shadow: 0 1px 0 0 #EB6534;
+  border-bottom: 1px solid #EB6534;
+  -webkit-box-shadow: 0 1px 0 0 #EB6534;
+  box-shadow: 0 1px 0 0 #EB6534;
 }
 
 .ok{
-    border-bottom: 1px solid #1ca501 !important;
-    -webkit-box-shadow: 0 1px 0 0 #1ca501 !important;
-    box-shadow: 0 1px 0 0 #1ca501 !important;
+  border-bottom: 1px solid #1ca501 !important;
+  -webkit-box-shadow: 0 1px 0 0 #1ca501 !important;
+  box-shadow: 0 1px 0 0 #1ca501 !important;
 }
 
 @keyframes opacity {
-    0%{
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
-    }
+  0%{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
