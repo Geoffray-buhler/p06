@@ -37,62 +37,69 @@ class ProfilsController extends AbstractController
         $trick = new Trick;
         $form = $this->createForm(NewTrickType::class,$trick);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
-            $trick = $form->getData();
-            $this->em->persist($trick);
-            $this->em->flush();
-            $file = $form->get('Medias')->getData();
-            $Youtubelink = $request->request->get('new_trick')['Youtube'];
-            
-            if ($Youtubelink != [1=>""]) {
-                for ($i=1; $i < count($Youtubelink)+1; $i++) { 
-                    $link = $Youtubelink[$i];
-                    $link = str_replace('https://www.youtube.com/watch?v=','',$link);
-                    $media = new Media;
-                    $media->setFileName($link);
-                    $media->setType('Youtube');
-                    $media->setTrick($trick);
-                    $this->em->persist($media);
-                    $this->em->flush();
-                }
-            }
-            if ($file) {
-                foreach ($file as $value) {
-                    $originalFilename = pathinfo($value->getClientOriginalName(), PATHINFO_FILENAME);
-                    $safeFilename = $slugger->slug($originalFilename);
-                    $newFilename = $safeFilename.'-'.uniqid().'.'.$value->guessExtension();
-                    try {
-                        $value->move(
-                            $this->getParameter('media_directory'),
-                            $newFilename
-                        );
-                    } catch (FileException $e) {
-                        // ... handle exception if something happens during file upload
+        try {
+            if ($form->isSubmitted()) {
+                $trick = $form->getData();
+                $this->em->persist($trick);
+                $this->em->flush();
+                $file = $form->get('Medias')->getData();
+                $Youtubelink = $request->request->get('new_trick')['Youtube'];
+                
+                if ($Youtubelink != [1=>""]) {
+                    for ($i=1; $i < count($Youtubelink)+1; $i++) { 
+                        $link = $Youtubelink[$i];
+                        $link = str_replace('https://www.youtube.com/watch?v=','',$link);
+                        $media = new Media;
+                        $media->setFileName($link);
+                        $media->setType('Youtube');
+                        $media->setTrick($trick);
+                        $this->em->persist($media);
+                        $this->em->flush();
                     }
+                }
+                if ($file) {
+                    foreach ($file as $value) {
+                        $originalFilename = pathinfo($value->getClientOriginalName(), PATHINFO_FILENAME);
+                        $safeFilename = $slugger->slug($originalFilename);
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$value->guessExtension();
+                        try {
+                            $value->move(
+                                $this->getParameter('media_directory'),
+                                $newFilename
+                            );
+                        } catch (FileException $e) {
+                            // ... handle exception if something happens during file upload
+                        }
+                        $media = new Media;
+                        $media->setFileName($newFilename);
+                        $media->setType('Image');
+                        $media->setTrick($trick);
+
+                        $this->em->persist($media);
+                        $this->em->flush();
+                    }
+                }else{
                     $media = new Media;
-                    $media->setFileName($newFilename);
+                    $media->setFileName('default.jpg');
                     $media->setType('Image');
                     $media->setTrick($trick);
 
                     $this->em->persist($media);
                     $this->em->flush();
                 }
-            }else{
-                $media = new Media;
-                $media->setFileName('default.jpg');
-                $media->setType('Image');
-                $media->setTrick($trick);
 
-                $this->em->persist($media);
-                $this->em->flush();
+                $this->addFlash('succes','Votre figure a bien ete crée');
             }
 
-            $this->addFlash('succes','Votre figure a bien ete crée');
+            return $this->render('profils/createTricks.html.twig', [
+                'form' => $form->createView()
+            ]);
+        } catch (\Throwable $th) {
+            if ($th->getCode() === 1062) {
+                $this->addFlash('error','Le nom de la figure existe deja');
+            }
+            return $this->redirect($request->headers->get('referer'));
         }
-
-        return $this->render('profils/createTricks.html.twig', [
-            'form' => $form->createView()
-        ]);
     }
 
     #[Route('/profil/modifyProfil', name: 'app_profil_modifyProfil')]
@@ -105,12 +112,9 @@ class ProfilsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('avatar')->getData();
-
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            // this is needed to safely include the file name as part of the URL
             $safeFilename = $slugger->slug($originalFilename);
             $newFilename = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
-            // Move the file to the directory where brochures are stored
             try {
                 $file->move(
                     $this->getParameter('avatar_directory'),
@@ -119,9 +123,6 @@ class ProfilsController extends AbstractController
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
-
-            // updates the 'file' property to store the PDF file name
-            // instead of its contents
             $user->setAvatar($newFilename);
             $this->em->flush();
         }
