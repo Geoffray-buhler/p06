@@ -10,6 +10,6 @@ et enfin pour lancer le serveur : **symfony server:start**
 
 Si vous voulez mettre en place la base de données veuillez mettre les informations de connexion dans le fichier **.env** puis faire cette suite de commande :
 
->**php bin/console create:database**
->**php bin/console make:migration**
->**php bin/console doctrine:migrations:migrate**
+> - **php bin/console create:database**
+> - **php bin/console make:migration**
+> - **php bin/console doctrine:migrations:migrate**
